@@ -1,4 +1,4 @@
-const CACHE = "anbun-simple-v1";
+const CACHE = "anbun-simple-v2";
 const FILES = ["./", "./index.html", "./manifest.json"];
 
 self.addEventListener("install", function(e){

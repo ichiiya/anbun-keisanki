@@ -317,8 +317,11 @@ function render(){
   el("r2name").textContent = l2;
   el("r1pct").textContent = r1 + "%";
   el("r2pct").textContent = r2 + "%";
-  el("r1amt").textContent = yen(amount * r1 / 100);
-  el("r2amt").textContent = yen(amount * r2 / 100);
+  // 片方を四捨五入し、もう片方は差額。合計が元の金額とズレないようにする。
+  var a1 = Math.round(amount * r1 / 100);
+  var a2 = Math.round(amount) - a1;
+  el("r1amt").textContent = yen(a1);
+  el("r2amt").textContent = yen(a2);
 
   scheduleAutoSave();
 }
